@@ -1,0 +1,1 @@
+www,admin,panel,api,dev,test,backup,sms,gateway,mail,ftp,cpanel,webmail,blog,shop,forum,support,beta,stage,prod,internal,vpn,remote,office,dashboard
