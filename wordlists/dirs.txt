@@ -1,0 +1,1 @@
+admin,login,dashboard,backup,config,sql,dump,shell,upload,assets,css,js,images,files,api,v1,v2,test,dev,stage,old,new,panel,gateway,payment,user,users,profile,settings,logs,temp,tmp,data,db,database,phpmyadmin,mysql,install,setup,wp-admin,wp-content,wp-includes,vendor,src,public,private,secure,hidden,secret,conf,back,old,new,beta,demo,store,shop,forum
