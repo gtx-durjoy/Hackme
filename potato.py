@@ -3,7 +3,7 @@ import os
 import sys
 import subprocess
 from colorama import init, Fore, Style
-init()
+init(autoreset=True)
 
 # =================== ASCII ART ===================
 def show_banner():
@@ -34,30 +34,43 @@ def show_menu():
     print(f"{Fore.RESET}")
 
 def main():
-    os.system("clear" if os.name == "posix" else "cls")
-    show_banner()
-    show_menu()
-    
-    choice = input(f"\n{Fore.WHITE}[?] Select option: {Fore.RESET}")
-    
-    if choice == "1":
-        os.system("python recon.py")
-    elif choice == "2":
-        os.system("python scanner.py")
-    elif choice == "3":
-        os.system("python scanner.py --sqli")
-    elif choice == "4":
-        os.system("python scanner.py --xss")
-    elif choice == "5":
-        os.system("python scanner.py --full")
-    elif choice == "6":
-        os.system("python exploit.py")
-    elif choice == "7":
-        print(f"{Fore.RED}[!] Exiting...")
-        sys.exit(0)
-    else:
-        print(f"{Fore.RED}[!] Invalid option")
-        sys.exit(1)
+    while True:
+        os.system("clear" if os.name == "posix" else "cls")
+        show_banner()
+        show_menu()
+        
+        choice = input(f"\n{Fore.WHITE}[?] Select option: {Fore.RESET}").strip()
+        
+        if choice == "1":
+            print(f"{Fore.GREEN}[+] Running Recon...{Fore.RESET}")
+            subprocess.run(["python", "recon.py"])
+            input("\nPress Enter to continue...")
+        elif choice == "2":
+            print(f"{Fore.GREEN}[+] Running Directory Brute-Force...{Fore.RESET}")
+            subprocess.run(["python", "scanner.py"])
+            input("\nPress Enter to continue...")
+        elif choice == "3":
+            print(f"{Fore.GREEN}[+] Running SQLi Scanner...{Fore.RESET}")
+            subprocess.run(["python", "scanner.py", "--sqli"])
+            input("\nPress Enter to continue...")
+        elif choice == "4":
+            print(f"{Fore.GREEN}[+] Running XSS Scanner...{Fore.RESET}")
+            subprocess.run(["python", "scanner.py", "--xss"])
+            input("\nPress Enter to continue...")
+        elif choice == "5":
+            print(f"{Fore.GREEN}[+] Running Full Scan...{Fore.RESET}")
+            subprocess.run(["python", "scanner.py", "--full"])
+            input("\nPress Enter to continue...")
+        elif choice == "6":
+            print(f"{Fore.GREEN}[+] Running Exploit...{Fore.RESET}")
+            subprocess.run(["python", "exploit.py"])
+            input("\nPress Enter to continue...")
+        elif choice == "7":
+            print(f"{Fore.RED}[!] Exiting...{Fore.RESET}")
+            sys.exit(0)
+        else:
+            print(f"{Fore.RED}[!] Invalid option{Fore.RESET}")
+            input("\nPress Enter to continue...")
 
 if __name__ == "__main__":
     main()
